@@ -16,6 +16,9 @@ limit: 10
 5
 filter: {$and: [{number_of_employees:{$lt:1000}}, {founded_year:{$lt:2005}}]}
 sort: {number_of_employees:1}
+6
+filter: {partners:{$eq:[]}}
+(não sei se essa questão está realmente correta.)
 7
 filter: {category_code: null}
 8
