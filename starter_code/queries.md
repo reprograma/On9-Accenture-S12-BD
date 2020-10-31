@@ -73,7 +73,7 @@ sort: {number_of_employees:1}
 
 
 
-17- Todas as empresas cujo valor de aquisição seja superior a 10.000.000 e a moeda seja 'EUR'.
+17- Todas as empresas cujo valor de aquisição seja superior a 10.000.000 e a moeda seja 'EUR'
 query: {$and: [{"acquisition.price_amount": {$gt:10000000}},{"acquisition.price_currency_code": {$eq:"EUR"}}]}
 
 
@@ -83,7 +83,7 @@ project: {name:1, acquisition:1, _id:0}
 limit: 10
 
 
-19- Todas as empresas que foram fundadas entre 2000 e 2010, mas não foram adquiridas antes de 2011.
+19- Todas as empresas que foram fundadas entre 2000 e 2010, mas não foram adquiridas antes de 2011
 query: {$and: [{founded_year: [{$lt:2011, $gte:2000}]}, {"acquisition.acquired_year":{$gt:2011}}]}
 
 
