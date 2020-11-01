@@ -78,3 +78,23 @@ FILTER {founded_day:{$lte:7}}
 SORT {"acquisition.price_amount":-1}
 LIMIT {10}
 ~~~
+### 16. Todas as empresas da «web» category com mais de 4000 empregados. Classifique-os pela quantidade de funcionários em ordem crescente.
+~~~
+
+FILTER {$and:[{category_code:"web"},{number_of_employees:{$gt:4000}}]}
+SORT {number_of_employees:1}
+~~~
+### 17. Todas as empresas cujo valor de aquisição seja superior a 10.000.000 e a moeda seja 'EUR'.
+~~~
+FILTER {$and:[{"acquisition.price_amount":{$gt:10000000}},{"acquisition.price_currency_code":"EUR"}]}
+~~~
+### 18. Todas as empresas adquiridas no primeiro trimestre do ano. Limite a pesquisa a 10 empresas e recupere apenas os campos name e acquisition.
+~~~
+FILTER {"acquisition.acquired_month":{$lte:3}}
+PROJECT {name:1, acquisition:1}
+LIMIT {10}
+~~~
+### 19. Todas as empresas que foram fundadas entre 2000 e 2010, mas não foram adquiridas antes de 2011.
+~~~
+FILTER {$and:[{founded_year:{$gt:2000,$lt:2010}},{"acquisition.acquired_year":{$gt: 2011}}]}
+~~~
