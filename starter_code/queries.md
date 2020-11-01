@@ -13,3 +13,7 @@
 13. Filter = {"acquisitions.acquired_year": {$lt: 2015}} e Project = {name: 1, acquisitions:1} e Sort = {"acquisitions.price_amount": -1} (professora não há maior só menor que 2015)
 14. Filter = em branco e Project = {name: 1, founded_year:1} e Sort = {founded_year: 1}
 15. Filter = {founded_day: {$ne: null, $lte:10}} e Sort = {"acquisitions.price_amount": -1} e Limit = 10 (professora não havia na base menor ou igual aos primeiros 7 dias e por isso coloquei 10)
+16. Filter = {$and:[{number_of_employees:{$gt:4000}},{category_code:{$eq:"web"}}]} e Sort = {number_of_employees: 1}
+17. Filter = {$and:[{"acquisitions.acquired_month":{$lt:10000000}},{"acquisitions.price_currency_code":{$eq:"EUR"}}]} (Alterei para que seja inferior a 10.000.000 porque na base não tinha superior com a moeda EUR)
+18. Filter = {"acquisitions.acquired_month":{$gte:1, $lte:3}} e Project = {name: 1, acquisitions:1}
+19. {$and:[{founded_year:{$gte:2000, $lt: 2010}},{"acquisitions.acquired_year":{$gte:2011}}]}
